@@ -21,6 +21,9 @@ code {
   cursor: move !important;
  
  }
+ [data-rbd-drag-handle-context-id="0"]:hover{
+   background: white;
+ }
 /* width */
 ::-webkit-scrollbar {
   width: 10px;

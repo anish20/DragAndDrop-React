@@ -7,7 +7,7 @@ import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 const getItems = count =>
   Array.from({ length: count }, (v, k) => k).map(k => ({
     id: `item-${k}`,
-    content: `item ${k}`
+    content: `${1+Math.random().toFixed(0)}`
   }));
 
 // a little function to help us with reordering the result
@@ -44,7 +44,8 @@ class DragAndDrop extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            items: getItems(30)
+            items: getItems(30),
+            itemName:["Mango","Apple"]
           };
           this.onDragEnd = this.onDragEnd.bind(this);
     }
@@ -69,7 +70,7 @@ class DragAndDrop extends Component {
 
     render() { 
         return ( <div>
-                 <DragDropContext onDragEnd={this.onDragEnd}>
+        <DragDropContext onDragEnd={this.onDragEnd}>
         <Droppable droppableId="droppable">
           {(provided, snapshot) => (
             <div
