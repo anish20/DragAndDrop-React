@@ -23,7 +23,8 @@ const grid = 10;
 const getItemStyle = (isDragging, draggableStyle) => ({
   // some basic styles to make the items look a bit nicer
   userSelect: "none",
-  padding: grid * 1.2,
+  padding: grid * 1.5,
+  borderRadius:`8px`,
   margin: `0 0 ${grid}px 0`,
   border: isDragging ? 'dotted white 5px':'',
   // change background colour if dragging
@@ -44,8 +45,7 @@ class DragAndDrop extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            items: getItems(30),
-            itemName:["Mango","Apple"]
+            items: getItems(20)
           };
           this.onDragEnd = this.onDragEnd.bind(this);
     }
@@ -73,7 +73,7 @@ class DragAndDrop extends Component {
         <DragDropContext onDragEnd={this.onDragEnd}>
         <Droppable droppableId="droppable">
           {(provided, snapshot) => (
-            <div
+            <div 
               {...provided.droppableProps}
               ref={provided.innerRef}
               style={getListStyle(snapshot.isDraggingOver)}
