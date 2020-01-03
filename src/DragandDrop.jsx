@@ -7,7 +7,7 @@ import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 const getItems = count =>
   Array.from({ length: count }, (v, k) => k).map(k => ({
     id: `item-${k}`,
-    content: `${1+Math.random().toFixed(0)}`
+    content: `${Math.floor(100000000 + Math.random() * 900000000)}`
   }));
 
 // a little function to help us with reordering the result
@@ -89,6 +89,7 @@ class DragAndDrop extends Component {
                         snapshot.isDragging,
                         provided.draggableProps.style
                       )}
+                    className="cell"
                     >
                       {item.content}
                     </div>
